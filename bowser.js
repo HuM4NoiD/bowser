@@ -11,7 +11,7 @@ function cleanup() {
 }
 
 async function openURL(url) {
-    return axios.get(`http://localhost:9222/json/new?${url}`)
+    return axios.get(`http://localhost:${process.env.CHRM_PORT}/json/new?${url}`)
         .then(res => {
            console.log(res.data); 
            return res.data;
@@ -50,7 +50,7 @@ async function openURL(url) {
             case 'clean':
                 if (chrome) {
                     console.log('Cleanup needs killing');
-                    chrome.kill('SIGHUP');
+                    chrome.kill('SIGINT');
                 }
                 cleanup();
                 break;
