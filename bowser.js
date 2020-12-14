@@ -18,6 +18,14 @@ async function openURL(url) {
         });
 }
 
+async function highlightTarget(id) {
+    return axios.get(`http://localhost:${process.env.CHRM_PORT}/json/activate/${id}`)
+        .then(res => {
+            console.log(res.data);
+            return id;
+        });
+}
+
 (async () => {
     var chrome;
     
@@ -61,6 +69,7 @@ async function openURL(url) {
                 break;
             case 'last':
                 console.table(last[0]);
+                await highlightTarget(last[0].id);
                 break;
             case 'end':
                 process.exit(0);
