@@ -1,8 +1,5 @@
 //jshint esversion: 8
-const { exec, spawn } = require('child_process');
 require('dotenv').config({ path: '.env'});
-const axios = require('axios').default;
-const prompt = require('prompt-sync')({ sigint: true });
 const { chrome } = require('./methods/chrome');
 
 function showHelp() {
