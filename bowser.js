@@ -1,6 +1,7 @@
 //jshint esversion: 8
 require('dotenv').config({ path: '.env'});
 const { chrome } = require('./methods/chrome');
+const { firefox } = require('./methods/firefox');
 
 function showHelp() {
     console.log("Usage:");
@@ -15,7 +16,7 @@ function showHelp() {
 
     switch(process.argv[2]) {
         case 'chrome' : await chrome(); break;
-        case 'firefox' : break;
+        case 'firefox' : await firefox(); break;
         case '-h':
         case '--help': showHelp(); break;
         default: showHelp(); process.exit(1); 
