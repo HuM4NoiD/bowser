@@ -70,6 +70,10 @@ exports.chrome = async () => {
                 await highlightTarget(last[0].id);
                 break;
             case 'end':
+                if (chrome) {
+                    chrome.kill("SIGHUP");
+                    cleanup();
+                }
                 process.exit(0);
                 break;
             default: console.error(`Invalid choice: ${cmd}`);
