@@ -51,7 +51,7 @@ exports.chrome = async () => {
                 } else console.log('Chrome Opened');
                 break;
             case 'kill':
-                if (chrome) chrome.kill('SIGHUP');
+                if (chrome) chrome.kill('SIGINT');
                 break;
             case 'clean':
                 if (chrome) {
