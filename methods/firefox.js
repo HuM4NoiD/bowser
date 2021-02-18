@@ -59,7 +59,7 @@ exports.firefox = async () => {
                 break;
             case 'list':
                 data = await listTargets();
-                console.log(data);
+                console.table(data, ["url", "description"]);
                 break;
             case 'end':
                 if (firefox) {
