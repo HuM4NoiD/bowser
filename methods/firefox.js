@@ -43,8 +43,8 @@ exports.firefox = async () => {
                 if (!firefox) {
                     exec(`${process.env.FRFX_CMD} -CreateProfile "bowser-test ${process.env.FRFX_DATA_PATH}"`);
                     firefox = spawn(process.env.FRFX_CMD, [
-                        `--remote-debugging-port 9223`
-                    ]);
+                        "--remote-debugging-port", process.env.FRFX_PORT
+                    ], {stdio: "inherit"});
                 }
                 break;
             case 'kill': if (firefox) firefox.kill('SIGINT'); break;
